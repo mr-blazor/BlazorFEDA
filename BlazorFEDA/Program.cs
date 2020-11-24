@@ -1,4 +1,3 @@
-using BlazorPro.BlazorSize;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +18,6 @@ namespace BlazorFEDA
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddScoped<ResizeListener>();
             await builder.Build().RunAsync();
         }
     }
