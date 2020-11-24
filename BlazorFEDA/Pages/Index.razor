@@ -1,0 +1,14 @@
+﻿@page "/"
+
+@for (int i = 12; i < 56; i++)
+{
+    <p style="font-size: @mtd(@i);">Tipografía @i</p>
+}
+
+@code{
+    public string mtd(int a)
+    {
+        return a.ToString() + "px";
+    }
+}
+
