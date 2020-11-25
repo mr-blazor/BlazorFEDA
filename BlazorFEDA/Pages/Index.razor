@@ -1,4 +1,13 @@
-﻿@page "/"
+﻿@inject BrowserService Service
+
+@page "/"
+
+<h1>Dimensiones</h1>
+
+<p>Window Height: @Height</p>
+<p>Window Width: @Width</p>
+
+<button @onclick="GetDimensions">Captura</button>
 
 @for (int i = 12; i < 56; i++)
 {
@@ -6,6 +15,16 @@
 }
 
 @code{
+
+    public int Height { get; set; }
+    public int Width { get; set; }
+
+    async Task GetDimensions()
+    {
+        var dimension = await Service.GetDimensions();
+        Height = dimension.Height;
+        Width = dimension.Width;
+    }
 
     public string mtd(int a)
     {
